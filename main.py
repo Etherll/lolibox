@@ -1,11 +1,11 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout,QWidget
 from PyQt5.QtGui import QPainter,QBrush,QColor
+from PyQt5.QtCore import Qt, QPoint, QRect, QThread, pyqtSignal
 import json
 import io
 import requests
 import keyboard
-from PyQt5.QtCore import Qt,QPoint,QRect,QThread,pyqtSignal
 from PIL import ImageQt,ImageGrab ,ImageEnhance
 
 class MainWindow(QMainWindow):
