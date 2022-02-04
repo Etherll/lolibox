@@ -1,11 +1,15 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout,QWidget
 from PyQt5.QtGui import QPainter,QBrush,QColor
+import json
 import io
 import requests
+import keyboard
 from PyQt5.QtCore import Qt,QPoint,QRect
 from PIL import ImageQt,ImageGrab ,ImageEnhance
-import win32api,win32con
+import win32api
+import win32con
+import time
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -51,7 +55,6 @@ class MainWindow(QMainWindow):
     def mouseReleaseEvent(self, event):
         self.begin = event.pos()
         self.end = event.pos()
-        
         area = (self.first.x(),self.second.y() ,self.begin.x(),self.end.y())
         if self.first.x() > self.begin.x():
             area = (self.begin.x(),self.second.y(),self.first.x(),self.end.y())
@@ -85,7 +88,7 @@ def run():
     window = MainWindow()
     window.show()
     app.exec_()
-if __name__ == "__main__":
-    while True:
-        if win32api.GetAsyncKeyState(ord('Q'))-win32api.GetAsyncKeyState(win32con.VK_LCONTROL) == 1:
-            run()
+    
+hot_key = json.loads(open("config.json","r").read())
+keyboard.add_hotkey(hot_key['key'], run) 
+keyboard.wait('esc') 
