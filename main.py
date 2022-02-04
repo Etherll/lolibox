@@ -7,9 +7,6 @@ import requests
 import keyboard
 from PyQt5.QtCore import Qt,QPoint,QRect
 from PIL import ImageQt,ImageGrab ,ImageEnhance
-import win32api
-import win32con
-import time
 
 class MainWindow(QMainWindow):
     def __init__(self):
