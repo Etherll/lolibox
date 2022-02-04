@@ -29,7 +29,7 @@ class MainWindow(QMainWindow):
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Escape:
             self.close()
-    
+
     def paintEvent(self, event):
         qpixmap= ImageQt.toqpixmap(self.image)
         qp = QPainter(self)
@@ -52,7 +52,7 @@ class MainWindow(QMainWindow):
     def mouseReleaseEvent(self, event):
         self.begin = event.pos()
         self.end = event.pos()
-        
+
         area = (self.first.x(),self.second.y() ,self.begin.x(),self.end.y())
         if self.first.x() > self.begin.x():
             area = (self.begin.x(),self.second.y(),self.first.x(),self.end.y())
@@ -96,5 +96,5 @@ def run():
 hot_key = json.loads(open("config.json","r").read())
 
 keyboard.add_hotkey(hot_key['key'], run) 
-  
+
 keyboard.wait()
