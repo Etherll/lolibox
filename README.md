@@ -1,4 +1,4 @@
-# lolibox
+# lolibox (dead- change the token in ([{token}.jpg](https://github.com/Etherll/lolibox/blob/main/main.py#L66)))
 **lolibox fastest way to copy text from videos & images**
 
 its same as blackbox extension (actually same api)
